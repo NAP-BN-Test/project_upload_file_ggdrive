@@ -7,7 +7,7 @@ $(document).ready(function () {
     var clientId = "672453115409-8lj6c9hvaaf3qbfce8mjpnss22vgeeq4.apps.googleusercontent.com";
 
     // redirect_uri of the project
-
+    // khi cho phép hết sẽ chuyển về trang này
     var redirect_uri = "http://localhost:5500/upload.html";
 
     // scope of the project
@@ -36,7 +36,7 @@ $(document).ready(function () {
         url = "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=" + redirect_uri
             + "&prompt=consent&response_type=code&client_id=" + clientId + "&scope=" + scope
             + "&access_type=offline";
-
+        console.log(url, 1234);
         // this line makes the user redirected to the url
         window.location = url;
     }

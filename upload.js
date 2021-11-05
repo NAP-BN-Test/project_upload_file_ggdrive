@@ -1,8 +1,9 @@
 $(document).ready(function () {
-
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
+    // const urlParams = new URLSearchParams(window.location.search);
+    // console.log(urlParams);
+    // const code = urlParams.get('code');
+    const code = '4/0AX4XfWji5mUG84LTQ_1n-wvTc-BsUEj9dpnZlsLaTf8V-BY7B3bu-4gYU9XhC_YoOGOT_A';
+    console.log(code);
     const redirect_uri = "http://localhost:5500/upload.html" // replace with your redirect_uri;
     const client_secret = "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"; // replace with your client secret
     const scope = "https://www.googleapis.com/auth/drive";
@@ -23,16 +24,11 @@ $(document).ready(function () {
         },
         dataType: "json",
         success: function (resultData) {
-
-
+            console.log(resultData);
             localStorage.setItem("accessToken", resultData.access_token);
             localStorage.setItem("refreshToken", resultData.refreshToken);
             localStorage.setItem("expires_in", resultData.expires_in);
             window.history.pushState({}, document.title, "/GitLoginApp/" + "upload.html");
-
-
-
-
         }
     });
 
@@ -111,7 +107,7 @@ $(document).ready(function () {
     $("#upload").on("click", function (e) {
         var file = $("#files")[0].files[0];
         var upload = new Upload(file);
-
+        console.log(1234);
         // maby check size or type here with upload.getSize() and upload.getType()
 
         // execute upload
